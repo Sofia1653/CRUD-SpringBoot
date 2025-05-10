@@ -31,7 +31,9 @@ public class PersonController {
     @PostMapping
     private ResponseEntity<PersonResponseDTO> register(@RequestBody PersonRequestDTO personRequestDTO, UriComponentsBuilder uriBuilder){
         PersonResponseDTO personResponseDTO = personService.register(personRequestDTO);
-        URI uri = uriBuilder.path("/people/{id}").buildAndExpand(personResponseDTO.getId()).toUri();
+        URI uri = uriBuilder.path("/people/{id}").buildAndExpand(personResponseDTO.ge
+
+                tId()).toUri();
         return ResponseEntity.created(uri).body(personResponseDTO);
     }
 
